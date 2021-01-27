@@ -29,7 +29,7 @@ class Sessioner {
             next();
             return;
         };
-        const sessionId = this.appendSession();
+        const sessionId = Sessioner.appendSession();
         res.cookie(cookie.cookieName, sessionId, { sameSite: cookie.sameSite, secure: cookie.secure });
         next();
     };
