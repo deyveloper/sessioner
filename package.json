@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "postinstall": "mv ./dist/* ./ && rmdir ./dist",
+        "postinstall": "mv ./dist/* ./",
         "start": "tsc && node dist/index.js"
     },
     "keywords": [],
