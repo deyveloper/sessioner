@@ -14,7 +14,7 @@ class Sessioner {
         Sessioner.options = options;
     };
 
-    middler(req, res, next, ) {
+    static middler(req, res, next, ) {
         let cookie;
         if (Sessioner.options.cookie.conditional) {
             cookie = Sessioner.options.cookie.conditional(req, res);
@@ -34,7 +34,7 @@ class Sessioner {
         next();
     };
 
-    appendSession() {
+    static appendSession() {
         const generatedId = uuid.v4();
         const session = {
             sessionId: generatedId,
@@ -44,11 +44,11 @@ class Sessioner {
         return generatedId;
     };
 
-    get(sessionId) {
+    static get(sessionId) {
         return Sessioner.sessions[sessionId].data;
     };
 
-    set(sessionId) {
+    static set(sessionId) {
         try {
             Sessioner.sessions[sessionId].data = JSON.stringify(data);
         } catch {
@@ -57,7 +57,7 @@ class Sessioner {
         return true;
     };
 
-    append(sessionId, dataToAppend, key) {
+    static append(sessionId, dataToAppend, key) {
         try {
             const data = Sessioner.sessions[sessionId].data;
             const parsedData = JSON.parse(data);
