@@ -48,7 +48,7 @@ class Sessioner {
         return Sessioner.sessions[sessionId].data;
     };
 
-    static set(sessionId) {
+    static set(sessionId, data) {
         try {
             Sessioner.sessions[sessionId].data = JSON.stringify(data);
         } catch {
