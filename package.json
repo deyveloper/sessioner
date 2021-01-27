@@ -4,7 +4,6 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "postinstall": "rm -rf ./src && mv ./dist/* ./ && rmdir ./dist",
         "start": "tsc && node dist/index.js"
     },
     "keywords": [],
