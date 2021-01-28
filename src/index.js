@@ -25,7 +25,8 @@ class Sessioner {
                 secure: Sessioner.options.cookie.secure || false
             };
         };
-        if (req.cookies[cookie.cookieName]) {
+        const webSid = req.cookies[cookie.cookieName];
+        if (webSid && Object.keys(Sessioner.sessions).includes(webSid)) {
             next();
             return;
         };
