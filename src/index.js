@@ -46,7 +46,11 @@ class Sessioner {
     };
 
     static get(sessionId) {
-        return Sessioner.sessions[sessionId].data;
+        try {
+            return Sessioner.sessions[sessionId].data;
+        } catch {
+            return '';
+        };
     };
 
     static set(sessionId, data) {
